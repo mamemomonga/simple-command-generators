@@ -1,0 +1,62 @@
+<html>
+<head>
+<meta charset="utf-8">
+<title>ffmpeg コマンドジェネレータ</title>
+
+<link rel="stylesheet" href="main.css" type="text/css">
+<script src="main.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="main.css" type="text/css">
+
+<script type="text/javascript">//<![CDATA[<!--
+$(function(){ new AppMain().run("ffmpeg"); })
+</script>
+
+</head>
+
+<body>
+<h1>ffmpeg コマンドジェネレータ</h1>
+<form name="main">
+<table>
+
+<tr><td>入力ファイル</td><td><input type="text" id="infile"></td></tr>
+<tr><td>出力ファイル</td><td><input type="text" id="outfile"></td></tr>
+
+<tr><td>リサイズ</td><td><select id="resize">
+<option value="">無効</option>
+<option value="720" selected >HD(720P)</option>
+</select></td></tr>
+
+<tr><td>開始</td><td><input type="text" id="time_start"></td></tr>
+<tr><td>終了</td><td><input type="text" id="time_end"></td></tr>
+<tr><td>時間</td><td><input type="text" id="duration"></td></tr>
+
+<tr><td>n倍速</td><td><input type="text" id="speed"></td></tr>
+
+<tr><td>映像</td><td><select id="video">
+<option value="nc">変更しない</option>
+<option value="2000">x264 2000kbps</option>
+</select></td></tr>
+
+<tr><td>音声</td><td><select id="audio">
+<option value="" selected>無音</option>
+<option value="nc">変更しない</option>
+<option value="96">48kHzfs AAC 96kbps</option>
+</select></td></tr>
+
+<tr><td>エラー対策</td><td>
+<input type="checkbox" id="max_muxing_queue_size_400">QuickTime(MOV)ファイルから変換する際に「Too many packets buffered for output stream 0:0. 」というエラーがでる場合の対策
+</td></tr>
+</table>
+</form>
+
+<div id="result">結果</div>
+
+<p>開始時間は hh:mm:ss, mm:ss, ss, hh.mm.ss, mm.ss, ss などの形で指定可能</p>
+</body>
+</html>
+
